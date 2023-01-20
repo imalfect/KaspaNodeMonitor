@@ -1,0 +1,8 @@
+.idea
+node_modules
+dist
+npm-debug.log*
+.env
+!.env.example
+config.json
+!config.json.example
