@@ -30,53 +30,53 @@ Below you will find the instructions to set up Kaspa Node Monitor with your Kasp
 
 1. Clone this GitHub Repository
 
-   	$ git clone https://github.com/imalfect/KaspaNodeMonitor
+   		$ git clone https://github.com/imalfect/KaspaNodeMonitor
 2. Go to the cloned directory
 
-   	$ cd KaspaNodeMonitor
+   		$ cd KaspaNodeMonitor
 3. Install all the required packages
 
-   	$ npm install
+   		$ npm install
 4. Configure Kaspa Node Monitor
     1. Configure the backend
         1. Go to the backend directory
 
-           	$ cd server
+           		$ cd server
        
         2. Copy the example .env file
 
-           	$ cp .env.example .env
+           		$ cp .env.example .env
     
         3. Edit and save the .env file to your preferences with your favorite editor (More about the .env file later in the README)
 
-           	$ nano .env
+           		$ nano .env
        
         4. Go back to the main directory and follow the next steps
 
-           	$ cd ..
+           		$ cd ..
        
     2. Configure the frontend
         1. Go to the frontend directory
 
-           	$ cd client
+           		$ cd client
        
         2. Copy the example config.json file
 
-           	$ cp config.json.example config.json
+           		$ cp config.json.example config.json
        
         3. Edit and save the config.json file to your preferences with your favorite editor (More about the config.json file later in the README)
 
-           	$ nano config.json
+           		$ nano config.json
        
         4. Build the frontend, and go back to the main directory and follow the next steps.
 
-           	$ npm run build && cd ..
+           		$ npm run build && cd ..
        
 5. Once you're all finished with the configuration, and you've built the frontend you're ready to go! If you set the `SERVE_FRONTEND` parameter in the backend `.env` to `false`, you'll have to copy the `dist` folder from the `client` directory and serve it to the user. If you set it to true, it will be served automatically with the backend on the same port.
 6. Run the backend
 
 
-    $ npm start
+    	$ npm start
 
 Congratulations! You have successfully set up Kaspa Node Monitor, and it is now running on the port that you've set, If you want the domain monitor to run under a domain, you'll have to configure it in your reverse proxy and/or DNS records.
 
