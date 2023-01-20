@@ -28,7 +28,7 @@ export const wsMethods = [];
 const expressWsInstance = expressWs(app);
 // CONFIGURATION AND ETC.
 const port = process.env.PORT || 3000;
-const host = process.env.HOST || '127.0.0.1';
+const host = process.env.HOST || '0.0.0.0';
 export const nodeUrl = process.env.NODE_URL;
 // Specifications of the server (cpu,ram,uptime)
 export const location = process.env.SERVER_LOCATION || 'Poland';
