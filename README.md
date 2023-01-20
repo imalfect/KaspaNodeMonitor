@@ -68,7 +68,7 @@ Below you will find the instructions to set up Kaspa Node Monitor with your Kasp
 6. Run the backend
 
 
-					$ npm start
+    $ npm start
 
 
 Congratulations! You have successfully set up Kaspa Node Monitor, and it is now running on the port that you've set, If you want the domain monitor to run under a domain, you'll have to configure it in your reverse proxy and/or DNS records.
