@@ -11,6 +11,7 @@ Kaspa Node Monitor displays information such as:
 - Header count
 - Peers count
 - DAA Score
+- Blue score
 - Node version
 - Node sync status
 - Node network
