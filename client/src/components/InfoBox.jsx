@@ -15,7 +15,6 @@ export default function InfoBox(props) {
   return (
     <Box
       sx={{
-        'display': 'flex',
         'backgroundColor': 'background.paper',
         'boxShadow': 3,
         'overflow': 'hidden',
@@ -37,7 +36,7 @@ export default function InfoBox(props) {
       <Typography align="left" variant="h5"
         display={props.value === 0 || props.value === '0' ? 'none' : 'block'}
         sx={{
-          marginLeft: 2, marginTop: 1, marginRight: 1.3,
+          marginLeft: 2, marginTop: 1, paddingRight: 1.3,
           flexGrow: 1,
           fontSize: 27, fontWeight: 700, fontColor: 'white'}}>
         {props.title}
@@ -45,7 +44,7 @@ export default function InfoBox(props) {
       <Typography align="right" variant="h3" color='#007aff'
         display={props.value === 0 || props.value === '0' ? 'none' : 'block'}
         sx={{
-          marginTop: 1, marginRight: 1.3,
+          marginTop: 1, paddingRight: 1.5,
           flexGrow: 1,
           fontWeight: 600, fontSize: 33}}>
         {props.value}

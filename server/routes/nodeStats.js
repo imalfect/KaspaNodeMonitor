@@ -17,6 +17,7 @@ export default router.get('/api/nodeStats', async (req, res) => {
       daaScore: nodeInfo.virtualDaaScore,
       difficulty: nodeInfo.difficulty,
       network: currentNetwork.network,
+      blueScore: nodeInfo.blueScore,
       status: 200,
     });
   } catch (e) {

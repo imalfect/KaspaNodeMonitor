@@ -117,6 +117,16 @@ export default function CommandLineData() {
               </Grid>
             </Grid>
           </Typography>
+          <Typography variant="h5" sx={{fontWeight: 800}}>
+            <Grid container direction="row">
+              <Grid item sx={{mr: 'auto'}}>
+                BLUE SCORE:
+              </Grid>
+              <Grid item sx={{ml: 'auto'}}>
+                {numberFormatter.format(nodeData.blueScore)}
+              </Grid>
+            </Grid>
+          </Typography>
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography variant="h4" sx={{fontWeight: 800, mb: 3}}>

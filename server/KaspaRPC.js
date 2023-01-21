@@ -32,6 +32,7 @@ export async function getNodeInfo() {
   const mainStats = await rpc.request('getBlockDagInfoRequest', {});
   const connectedPeers = await rpc.request('getConnectedPeerInfoRequest', {});
   const info = await rpc.request('getInfoRequest', {});
+  const blueScore = await rpc.request('getVirtualSelectedParentBlueScoreRequest', {});
   const pp = performance.now();
   // Check by timestamp sync
   const isSyncedTimestamp = new BigNumber(Date.now()).minus(latestBlockTimestamp).isLessThan(1000 * 60); // 1 minute
@@ -47,5 +48,6 @@ export async function getNodeInfo() {
     headerCount: mainStats.headerCount,
     daaScore: mainStats.virtualDaaScore,
     difficulty: mainStats.difficulty,
+    blueScore: blueScore.blueScore,
   };
 }

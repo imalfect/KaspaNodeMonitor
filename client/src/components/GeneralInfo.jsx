@@ -30,25 +30,25 @@ export default function GeneralInfo() {
         justifyContent="center"
         alignItems="center"
         container
-        spacing={2}
-        columns={{xs: 1, sm: 1.5, md: 5, lg: 6, xl: 11}}
+        spacing={1}
+        columns={{xs: 1, sm: 1.5, md: 6, lg: 8, xl: 14}}
         sx={{minWidth: 1}}>
-        <Grid item xs={1} md={2} lg={3} align="center">
+        <Grid item xs={1} md={2} lg={3.5} align="center">
           <InfoBox
             title="Block Count"
             value={numberFormatter.format(blockCount)}/>
         </Grid>
-        <Grid item xs={1} md={3} lg={3} align="center">
+        <Grid item xs={1} md={2} lg={3.5} align="center">
           <InfoBox
             title="Header Count"
             value={numberFormatter.format(headerCount)}/>
         </Grid>
-        <Grid item xs={1} md={2} align="center">
+        <Grid item xs={1} md={2} lg={3} align="center">
           <InfoBox
             title="Peers"
             value={peersCount}/>
         </Grid>
-        <Grid item xs={1} md={3} align="center">
+        <Grid item xs={1} md={4} align="center">
           <InfoBox
             title="DAA Score"
             value={numberFormatter.format(daaScore)}/>

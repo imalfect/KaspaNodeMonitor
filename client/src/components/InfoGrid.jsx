@@ -3,6 +3,8 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import InfoTable from './InfoTable';
+import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import {dataChange, getNodeNetwork} from '../KaspaAPI.js';
 import {numberFormatter} from '../index.js';
 /**
@@ -21,6 +23,10 @@ export default function InfoGrid() {
     async function run() {
       // Get network
       dataChange.on('nodeDataChange', (data) => {
+        const syncRPCIcon = data.isSyncedRPC ?
+            <CheckRoundedIcon /> : <CloseRoundedIcon />;
+        const syncTimestampIcon = data.isSyncedTimestamp ?
+            <CheckRoundedIcon /> : <CloseRoundedIcon />;
         setNodeData([
           {
             'name': 'Node Version',
@@ -28,11 +34,11 @@ export default function InfoGrid() {
           },
           {
             'name': 'Sync status (By gRPC)',
-            'value': data.isSyncedRPC.toString(),
+            'value': syncRPCIcon,
           },
           {
             'name': 'Sync status (By Block Timestamp)',
-            'value': data.isSyncedTimestamp.toString(),
+            'value': syncTimestampIcon,
           },
         ]);
         // Set network data
@@ -48,7 +54,12 @@ export default function InfoGrid() {
           {
             'name': 'Mempool Size',
             'value': numberFormatter.format(data.mempoolSize),
-          }]);
+          },
+          {
+            'name': 'Blue Score',
+            'value': numberFormatter.format(data.blueScore),
+          },
+        ]);
       });
       dataChange.on('hardwareDataChange', (data) => {
         console.log('hw data changed');
