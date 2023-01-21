@@ -33,10 +33,18 @@ ws.onmessage = (msg) => {
  * @return {Promise<string>}
  */
 export async function getNodeNetwork() {
-  ws.send(JSON.stringify({method: 'getNodeNetwork'}));
-  return new Promise((resolve) => {
-    dataChange.on('nodeNetworkChange', (data) => {
-      resolve(data.currentNetwork);
+  if (ws.readyState === 1) {
+    ws.send(JSON.stringify({method: 'getNodeNetwork'}));
+    return new Promise((resolve) => {
+      dataChange.on('nodeNetworkChange', (data) => {
+        resolve(data.currentNetwork);
+      });
     });
-  });
+  } else {
+    console.warn('WebSocket is not ready');
+    // wait and retry
+    setTimeout(async () => {
+      return await getNodeNetwork();
+    }, 500);
+  }
 }
