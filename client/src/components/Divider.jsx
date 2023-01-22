@@ -14,7 +14,7 @@ export default function SectionDivider() {
         flexDirection: 'column',
         alignItems: 'center', justifyContent: 'center',
         mt: 2, mb: 2}}>
-      <Divider sx={{backgroundColor: 'primary.main', width: '80%'}}/>
+      <Divider sx={{backgroundColor: 'primary.main', width: '100%'}}/>
     </Container>
   );
 }

@@ -5,7 +5,6 @@ import {createTheme} from '@mui/material/styles';
 export const mainDark = createTheme({
   typography: {
     fontFamily: 'Inter',
-    fontColor: '#c7fcf2',
   },
   divider: {
     color: '#49eacb',
@@ -13,10 +12,11 @@ export const mainDark = createTheme({
   palette: {
     mode: 'dark',
     background: {
-      paper: '#1e1e1e',
+      paper: '#111b19',
     },
     text: {
-      primary: '#a7faeb', // #a7faeb
+      primary: '#8dffec', // #a7faeb
+      status: '#8cd483',
       sidebar: '#c7fcf2', // #a7faeb
     },
     primary: {
@@ -39,6 +39,7 @@ export const mainDark = createTheme({
           src: local(''),
           url('../fonts/inter-v12-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
           url('../fonts/inter-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+          font-display: swap;
         }
         /* inter-800 - latin */
         @font-face {
@@ -48,6 +49,7 @@ export const mainDark = createTheme({
           src: local(''),
           url('../fonts/inter-v12-latin-800.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
           url('../fonts/inter-v12-latin-800.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+          font-display: swap;
         }`,
     },
   },
@@ -56,7 +58,6 @@ export const mainDark = createTheme({
 export const mainLight = createTheme({
   typography: {
     fontFamily: 'Inter',
-    fontColor: '#c7fcf2',
   },
   palette: {
     mode: 'light',
@@ -87,6 +88,7 @@ export const mainLight = createTheme({
           src: local(''),
           url('../fonts/inter-v12-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
           url('../fonts/inter-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+          font-display: swap;
         }
         /* inter-800 - latin */
         @font-face {
@@ -96,6 +98,7 @@ export const mainLight = createTheme({
           src: local(''),
           url('../fonts/inter-v12-latin-800.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
           url('../fonts/inter-v12-latin-800.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+          font-display: swap;
         }`,
     },
   },

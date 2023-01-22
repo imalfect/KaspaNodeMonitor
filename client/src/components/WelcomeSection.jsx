@@ -28,7 +28,7 @@ export default function WelcomeSection() {
           </Typography>
         </Grid>
         <Grid item xs={2} md={2} lg={1}>
-          <KaspaLogo height={256} width={256} />
+          <KaspaLogo height={168} width={168} />
         </Grid>
       </Grid>
     </Container>

@@ -18,7 +18,7 @@ export default function InfoBox(props) {
         'backgroundColor': 'background.paper',
         'boxShadow': 3,
         'overflow': 'hidden',
-        'height': 120,
+        'height': 100,
         'borderRadius': 1.5,
         '&:hover': {
           backgroundColor: 'background.paper',
@@ -38,7 +38,7 @@ export default function InfoBox(props) {
         sx={{
           marginLeft: 2, marginTop: 1, paddingRight: 1.3,
           flexGrow: 1,
-          fontSize: 27, fontWeight: 700, fontColor: 'white'}}>
+          fontSize: 25, fontWeight: 700, fontColor: 'white'}}>
         {props.title}
       </Typography>
       <Typography align="right" variant="h3" color='#007aff'
@@ -46,7 +46,7 @@ export default function InfoBox(props) {
         sx={{
           marginTop: 1, paddingRight: 1.5,
           flexGrow: 1,
-          fontWeight: 600, fontSize: 33}}>
+          fontWeight: 600, fontSize: 30}}>
         {props.value}
       </Typography>
 
