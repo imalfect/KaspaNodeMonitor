@@ -94,10 +94,10 @@ The .env file is used for the backend and can be found in the `backend` director
 | Parameter                | Description                                                                                                                                                                                                                        |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ALLOW_SERVER_INFORMATION | This setting allows the server to send information about itself to the client. If you're running the node monitor on a different machine that the node is running on, you'll be able to set the information manually in the future |
+| LOCATION                 | The location of the server the node runs on (preferably the country)                                                                                                                                                               |
 | LOG_LEVEL                | This setting allows you to set the log level for the backend, the default one is `info`, if you want to see the debug information, you can set it to `debug`                                                                       |
 | PORT                     | The port that the server will run on                                                                                                                                                                                               |
 | SERVE_FRONTEND           | If you want to serve the frontend with the server, set this to true                                                                                                                                                                |
-
 ---
 
 ### config.json
