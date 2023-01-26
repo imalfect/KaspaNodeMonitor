@@ -35,7 +35,7 @@ const port = process.env.PORT || 3000;
 const host = process.env.HOST || '0.0.0.0';
 export const nodeUrl = process.env.NODE_URL;
 // Specifications of the server (cpu,ram,uptime)
-export const location = process.env.SERVER_LOCATION || 'Poland';
+export const location = process.env.NODE_LOCATION || 'Kasland';
 // Check if user allowed for server information
 export const allowServerInfo = process.env.ALLOW_SERVER_INFORMATION !== 'false' || false;
 export const hostname = allowServerInfo ? os.hostname() : 'Not specified';
