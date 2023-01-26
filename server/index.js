@@ -11,6 +11,11 @@ import chalk from 'chalk';
 import log from 'loglevel';
 import morgan from 'morgan';
 import {fileURLToPath} from 'url';
+// I know that it's in process.env but in case someone runs node index.js instead of npm start I want to make sure it works
+// also workaround thanks to ESLint
+import {readFileSync} from 'fs';
+const pkg = JSON.parse(readFileSync('./package.json'));
+export const backendVersion = pkg.version;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 // Config from root folder

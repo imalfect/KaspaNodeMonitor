@@ -2,6 +2,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const pkg = require('./package.json');
 const WebpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const port = process.env.PORT || 2989;
 module.exports = {
@@ -32,7 +33,9 @@ module.exports = {
     new webpack.ProvidePlugin({
       process: 'process/browser',
     }),
-
+    new webpack.DefinePlugin({
+      AppVersion: JSON.stringify(pkg.version),
+    }),
   ],
   resolve: {
     extensions: ['', '.js', '.jsx'],

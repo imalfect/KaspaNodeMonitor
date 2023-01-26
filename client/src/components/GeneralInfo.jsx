@@ -46,6 +46,7 @@ export default function GeneralInfo() {
         <Grid item xs={1} md={2} lg={3} align="center">
           <InfoBox
             title="Peers"
+            skipProg={true}
             value={peersCount}/>
         </Grid>
         <Grid item xs={1} md={4} align="center">

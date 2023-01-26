@@ -19,17 +19,29 @@ export default class SubscribeToNodeData extends WebSocketSubscription {
       nodeInfo.origin = this.name;
       ws.send(JSON.stringify(nodeInfo));
     };
+    this.nodeDisconnectedCallback = async () => {
+      console.log('node disconnected callback');
+      const nodeInfo = await getNodeInfo();
+      nodeInfo.origin = this.name;
+      ws.send(JSON.stringify(nodeInfo));
+    };
   }
   /**
    * This function starts the subscription, checks if it's already subscribed and calls the function in the child class
    */
   async start() {
+    // Send the current node info
+    const nodeInfo = await getNodeInfo();
+    nodeInfo.origin = this.name;
+    this.ws.send(JSON.stringify(nodeInfo));
     nodeEvents.on('blockAdded', this.blockAddedCallback);
+    nodeEvents.on('disconnect', this.nodeDisconnectedCallback);
   }
   /**
    * This function removes the listener, essentially stopping the subscription
    */
   async stop() {
     nodeEvents.removeListener('blockAdded', this.blockAddedCallback);
+    nodeEvents.removeListener('disconnect', this.nodeDisconnectedCallback);
   }
 }

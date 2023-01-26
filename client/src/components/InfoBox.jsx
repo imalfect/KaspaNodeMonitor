@@ -26,7 +26,7 @@ export default function InfoBox(props) {
         },
       }}
     >
-      {props.value === 0 || props.value === '0' ?
+      {(props.value === 0 || props.value === '0') && props.skipProg === false ?
           <Box
             sx={{
               width: '80%',

@@ -4,6 +4,7 @@ import SectionDivider from './Divider';
 import GeneralInfo from './GeneralInfo';
 import InfoGrid from './InfoGrid';
 import React from 'react';
+import WarningSection from './WarningSection';
 
 /**
  * Main theme for the frontend
@@ -14,6 +15,7 @@ export default function MainTheme() {
   return (
     <Container>
       <WelcomeSection/>
+      <WarningSection/>
       <SectionDivider/>
       {/* General info */}
       <GeneralInfo/>

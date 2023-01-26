@@ -13,7 +13,7 @@ export default function WelcomeSection() {
   // left side of centered container is welcome text and right side is a picture
   return (
     <Container
-      sx={{mt: 2, mb: 2}}>
+      sx={{mt: 2, mb: 2, minWidth: 168}}>
       <Grid
         container
         spacing={2}

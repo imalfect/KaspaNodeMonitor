@@ -5,6 +5,7 @@ const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const WebpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const RobotstxtPlugin = require('robotstxt-webpack-plugin');
+const pkg = require('./package.json');
 const port = process.env.PORT || 2989;
 module.exports = {
   mode: 'production',
@@ -42,7 +43,9 @@ module.exports = {
     new webpack.ProvidePlugin({
       process: 'process/browser',
     }),
-
+    new webpack.DefinePlugin({
+      AppVersion: JSON.stringify(pkg.version),
+    }),
   ],
   resolve: {
     extensions: ['', '.js', '.jsx'],

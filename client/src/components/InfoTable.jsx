@@ -28,7 +28,11 @@ export default function InfoTable(props) {
                 <TableCell component="th" scope="row">
                   {row.name}
                 </TableCell>
-                <TableCell align="right" sx={{color: 'text.status'}}>{row.value}</TableCell>
+                <TableCell
+                  align="right"
+                  sx={{color: 'text.status'}}>
+                  {row.value}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
