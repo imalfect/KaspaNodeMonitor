@@ -32,9 +32,9 @@ ws.onmessage = (msg) => {
     } else {
       if (isConnected === false) {
         isConnected = true;
-        dataChange.emit('nodeDataChange', data);
         ws.send(JSON.stringify({method: 'getNodeNetwork'}));
       }
+      dataChange.emit('nodeDataChange', data);
     }
   } else if (data.origin === 'subscribeToHardwareData') {
     // Replace the old data with the new data
