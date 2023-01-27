@@ -25,7 +25,7 @@ Kaspa Node Monitor displays information such as:
     - System load
 
 ## Setup ☎
-Below you will find the instructions to set up Kaspa Node Monitor with your Kaspa Node. These instructions are for Linux, some steps may be different on other operating systems, for example `nano` doesn't exist on windows.
+Below you will find the instructions to set up Kaspa Node Monitor with your Kaspa Node. These instructions are for Linux, some steps may be different on other operating systems, for example `nano` is a linux package.
 
 <span style="color:yellow">**NOTE: These instructions are for the beta version, the setup process on the final release may change.**</span>
 
