@@ -120,11 +120,26 @@ The config.json file is used for the frontend and can be found in the `client` d
 
 _IMPORTANT_: When using with Docker, your Hardware information for RAM and Load will be what Docker has access to. It will not represent the state of the host.
 
+### Production
+
+_NOTE_: Temporary. When released, this will be using a published image.
+
+Only the server will be started in this environment. It is expected your run this in the server that contains
+
 To use with Docker, run the command:
 
 ```
 cd <root of folder>
 docker compose up -d
+```
+
+### Development
+
+To use with Docker for development, run the command:
+
+```
+cd <root of folder>
+docker compose -f docker-compose-dev.yaml up -d
 ```
 
 Changes to `server/.env`:
