@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  client:
+    container_name: kaspanodemon_client
+    image: "node:18"
+    working_dir: /var/www
+    volumes:
+    - ./client:/var/www
+    command: npm run dev
+    ports:
+    - "2989:2989"
+
+  server:
+    container_name: kaspanodemon_server
+    image: "node:18"
+    working_dir: /var/www
+    volumes:
+    - ./server:/var/www
+    command: npm run dev
+    ports:
+    - "8124:3000"
