@@ -26,7 +26,8 @@ Kaspa Node Monitor displays information such as:
 
 ## Setup ☎
 Below you will find the instructions to set up Kaspa Node Monitor with your Kaspa Node. These instructions are for Linux, some steps may be different on other operating systems, for example `nano` is a linux package.
-You need to have [NodeJS](https://nodejs.org/) and [Git](https://git-scm.com/) installed on your system. 
+
+**You need to have [NodeJS](https://nodejs.org/) and [Git](https://git-scm.com/) installed on your system.**
 <span style="color:yellow">**NOTE: These instructions are for the beta version, the setup process on the final release may change.**</span>
 
 1. Clone this GitHub Repository
