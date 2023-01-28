@@ -48,7 +48,7 @@ export default function CommandLineData() {
                 Status SYNC RPC:
               </Grid>
               <Grid item sx={{ml: 'auto'}}>
-                {nodeData.isSyncedRPC}
+                {nodeData.isSyncedRPC.toString()}
               </Grid>
             </Grid>
           </Typography>
@@ -58,7 +58,7 @@ export default function CommandLineData() {
                 Status SYNC TIMESTAMP:
               </Grid>
               <Grid item sx={{ml: 'auto'}}>
-                {nodeData.isSyncedTimestamp}
+                {nodeData.isSyncedTimestamp.toString()}
               </Grid>
             </Grid>
           </Typography>
