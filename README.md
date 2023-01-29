@@ -91,13 +91,13 @@ The .env file is used for the backend and can be found in the `backend` director
 #### Parameters
 
 ---
-
 | Parameter                | Description                                                                                                                                                                                                                        |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ALLOW_SERVER_INFORMATION | This setting allows the server to send information about itself to the client. If you're running the node monitor on a different machine that the node is running on, you'll be able to set the information manually in the future |
-| NODE_LOCATION                 | The location of the server the node runs on (preferably the country)                                                                                                                                                               |
+| NODE_LOCATION            | The location of the server the node runs on (preferably the country)                                                                                                                                                               |
 | LOG_LEVEL                | This setting allows you to set the log level for the backend, the default one is `info`, if you want to see the debug information, you can set it to `debug`                                                                       |
 | PORT                     | The port that the server will run on                                                                                                                                                                                               |
+| HOST                     | The host ip that the node monitor should run on (hint: use 127.0.0.1 for local installation and 0.0.0.0 for public)                                                                                                                |
 | SERVE_FRONTEND           | If you want to serve the frontend with the server, set this to true                                                                                                                                                                |
 ---
 
