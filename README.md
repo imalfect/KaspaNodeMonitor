@@ -124,7 +124,11 @@ _IMPORTANT_: When using with Docker, your Hardware information for RAM and Load 
 
 _NOTE_: Temporary. When released, this will be using a published image.
 
-Only the server will be started in this environment. It is expected your run this in the server that contains
+It is expected you run this in the server that's running `kaspad`.
+
+Frontend will be accessible via port `80`.
+
+Backend will be accessible via `8124`
 
 To use with Docker, run the command:
 

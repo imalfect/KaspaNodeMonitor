@@ -14,7 +14,7 @@ module.exports = {
     filename: 'js/[name].[contenthash].js',
   },
   devServer: {
-    host: 'localhost',
+    host: '0.0.0.0',
     port: port,
     historyApiFallback: true,
     open: true,
