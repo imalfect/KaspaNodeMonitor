@@ -142,6 +142,12 @@ cd <root of folder>
 docker compose -f docker-compose-dev.yaml up -d
 ```
 
+If this is the first time you run `docker-compose up`, it will take about 5mins to install dependencies. You should have `node_modules` in both `client` and `server` folders.
+
+After it's done installing, you can access the monitor at `localhost:2989`.
+
+### Config changes for Docker
+
 Changes to `server/.env`:
 - If you're running the `server` container on the same host as kaspad, you can use the NODE_URL: `NODE_URL=host.docker.internal:16110`
 

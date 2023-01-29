@@ -1,23 +1,13 @@
 version: "3.9"
 
 services:
-  client_install:
-    container_name: kaspanodemon_client_install
-    image: "node:18"
-    working_dir: /var/www
-    volumes:
-    - ./client:/var/www
-    command: npm install
-
   client:
-    depends_on: [client_install]
-    restart: unless-stopped
     container_name: kaspanodemon_client
     image: "node:18"
     working_dir: /var/www
     volumes:
     - ./client:/var/www
-    command: npm run dev
+    command: /bin/bash -c 'npm install && npm run dev'
     ports:
     - "2989:2989"
 
