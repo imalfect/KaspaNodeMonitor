@@ -1,6 +1,6 @@
 {
   "name": "kaspanodemonitor",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Kaspa Node Monitor is a tool that lets you monitor your Kaspa node in real time",
   "main": "index.js",
   "scripts": {
