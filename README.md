@@ -115,6 +115,46 @@ The config.json file is used for the frontend and can be found in the `client` d
 | theme       | This setting is used to specify the theme that the frontend will use, more on themes in the themes.md file, which can be found in the `client` directory |
 								
 ---
+
+## Docker
+
+_IMPORTANT_: When using with Docker, your Hardware information for RAM and Load will be what Docker has access to. It will not represent the state of the host.
+
+### Production
+
+_NOTE_: Temporary. When released, this will be using a published image.
+
+Only the server will be started in this environment. It is expected your run this in the server that contains
+
+To use with Docker, run the command:
+
+```
+cd <root of folder>
+docker compose up -d
+```
+
+### Development
+
+To use with Docker for development, run the command:
+
+```
+cd <root of folder>
+docker compose -f docker-compose-dev.yaml up -d
+```
+
+If this is the first time you run `docker-compose up`, it will take about 5mins to install dependencies. You should have `node_modules` in both `client` and `server` folders.
+
+After it's done installing, you can access the monitor at `localhost:2989`.
+
+### Config changes for Docker
+
+Changes to `server/.env`:
+- If you're running the `server` container on the same host as kaspad, you can use the NODE_URL: `NODE_URL=host.docker.internal:16110`
+
+Changes to `client/config.json`:
+- Use this for `wsApiURL`: `"wsApiURL": "ws://127.0.0.1:8124/ws"`
+  - The `8124` here matches the port in `docker-compose.yaml`
+
 ## Contributing
 Pull requests are welcome on our [GitHub](https://github.com/imalfect/KaspaNodeMonitor). For major changes, please open an issue first to discuss what you would like to change.
 

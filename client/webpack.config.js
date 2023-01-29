@@ -14,7 +14,7 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
-    host: 'localhost',
+    host: '0.0.0.0',
     port: port,
     historyApiFallback: true,
     open: true,

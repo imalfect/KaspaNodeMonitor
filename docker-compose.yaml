@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  server:
+    container_name: kaspanodemon_server
+    image: "node:18"
+    working_dir: /var/www
+    volumes:
+    - ./server:/var/www
+    command: /bin/bash -c "npm install && npm start"
+    ports:
+    - "3100:3000"
