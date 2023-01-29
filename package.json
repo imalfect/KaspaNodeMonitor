@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cd server/ && npm start",
-    "preinstall": "cd server/ && npm install && cd ../client/ && npm install",
-    "bumpversion": "npm version patch && cd server/ && npm version patch && cd ../client/ && npm version patch"
+    "preinstall": "cd server/ && npm install && cd ../client/ && npm install"
   },
   "author": "iMalFect",
   "license": "ISC"
