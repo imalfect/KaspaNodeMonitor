@@ -3,6 +3,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import InfoTable from './InfoTable';
+import BigNumber from 'bignumber.js';
 import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import {dataChange, getNodeNetwork} from '../KaspaAPI.js';
@@ -50,6 +51,12 @@ export default function InfoGrid() {
           {
             'name': 'Difficulty',
             'value': numberFormatter.format(data.difficulty),
+          },
+          {
+            'name': 'Hashrate',
+            'value': numberFormatter.format(
+                new BigNumber(data.hashRate).shiftedBy(-12).toFixed(2),
+            ) + ' TH/s',
           },
           {
             'name': 'Mempool Size',

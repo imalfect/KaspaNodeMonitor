@@ -13,12 +13,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/[name].[contenthash].js',
   },
-  devServer: {
-    host: '0.0.0.0',
-    port: port,
-    historyApiFallback: true,
-    open: true,
-  },
   plugins: [
     new RobotstxtPlugin({
       policy: [

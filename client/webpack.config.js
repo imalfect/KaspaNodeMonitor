@@ -14,7 +14,9 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
-    host: '0.0.0.0',
+    // I had to change this, otherwise the backend + this doesn't work as expected
+    // If you feel like this has to be 0.0.0.0 feel free to fix it :).
+    host: '127.0.0.1',
     port: port,
     historyApiFallback: true,
     open: true,

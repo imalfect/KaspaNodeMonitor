@@ -88,6 +88,7 @@ export async function getNodeInfo() {
     const connectedPeers = await rpc.request('getConnectedPeerInfoRequest', {});
     const info = await rpc.request('getInfoRequest', {});
     const blueScore = await rpc.request('getVirtualSelectedParentBlueScoreRequest', {});
+    const hashRate = await getNetworkHashrate();
     const pp = performance.now();
     // Check by timestamp sync
     const isSyncedTimestamp = new BigNumber(Date.now()).minus(latestBlockTimestamp).isLessThan(1000 * 60); // 1 minute
@@ -104,6 +105,7 @@ export async function getNodeInfo() {
       daaScore: mainStats.virtualDaaScore,
       difficulty: mainStats.difficulty,
       blueScore: blueScore.blueScore,
+      hashRate: hashRate,
       status: 200,
     };
   } else {
@@ -129,4 +131,11 @@ async function checkConnection() {
   }
 }
 
-
+/**
+ * @summary Get network hashrate
+ * @return {Promise<*>}
+ */
+async function getNetworkHashrate() {
+  const info = await rpc.request('estimateNetworkHashesPerSecondRequest', {windowSize: 2500});
+  return info.networkHashesPerSecond;
+}
