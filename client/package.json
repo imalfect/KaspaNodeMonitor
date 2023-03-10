@@ -11,7 +11,7 @@
   "author": "iMalFect",
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "@emotion/react": "^11.10.5",
+    "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.5",
     "@fontsource/roboto": "^4.5.8",
     "@mui/icons-material": "^5.11.0",
