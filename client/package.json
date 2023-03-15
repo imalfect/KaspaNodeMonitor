@@ -43,7 +43,7 @@
     "postcss-loader": "^7.0.2",
     "robotstxt-webpack-plugin": "^8.0.0",
     "style-loader": "^3.3.1",
-    "webpack": "^5.75.0",
+    "webpack": "^5.76.0",
     "webpack-bundle-analyzer": "^4.7.0",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"
