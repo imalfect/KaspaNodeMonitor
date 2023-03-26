@@ -1,5 +1,0 @@
-{
-  "welcomeText": "Welcome to iMalFect's node!",
-  "wsApiURL": "ws://127.0.0.1:3000/ws",
-  "theme": "mainDark"
-}
