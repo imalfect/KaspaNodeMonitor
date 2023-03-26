@@ -1,0 +1,13 @@
+{
+  "name": "kaspanodemonitor",
+  "version": "0.1.3",
+  "description": "Kaspa Node Monitor is a tool that lets you monitor your Kaspa node in real time",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd server/ && npm start",
+    "preinstall": "cd server/ && npm install && cd ../client/ && npm install"
+  },
+  "author": "iMalFect",
+  "license": "ISC"
+}

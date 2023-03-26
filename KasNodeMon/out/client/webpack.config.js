@@ -2,27 +2,27 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
-const RobotstxtPlugin = require('robotstxt-webpack-plugin');
 const pkg = require('./package.json');
-// TODO: Check this.
+const WebpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const port = process.env.PORT || 2989;
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/[name].[contenthash].js',
   },
+  devtool: 'inline-source-map',
+  devServer: {
+    // I had to change this, otherwise the backend + this doesn't work as expected
+    // If you feel like this has to be 0.0.0.0 feel free to fix it :).
+    host: '127.0.0.1',
+    port: port,
+    historyApiFallback: true,
+    open: true,
+  },
   plugins: [
-    new RobotstxtPlugin({
-      policy: [
-        {
-          userAgent: '*',
-          allow: '/',
-          crawlDelay: 2,
-        },
-      ],
-    }),
+    new WebpackBundleAnalyzer(),
     new HtmlWebpackPlugin({
       title: 'Kaspa Node Monitor',
       // Load a custom template (lodash by default)
@@ -82,11 +82,17 @@ module.exports = {
       },
       // woff2,ttf,eot
       {
-        test: /\.(woff(2)?|ttf|eot)$/,
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
         type: 'asset/resource',
-        generator: {
-          filename: './fonts/[name][ext]',
-        },
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+            },
+          },
+        ],
       },
       // svg
       {
@@ -96,8 +102,6 @@ module.exports = {
     ],
   },
   optimization: {
-    minimize: true,
-    minimizer: [new TerserPlugin()],
     runtimeChunk: 'single',
     splitChunks: {
       chunks: 'all',
@@ -118,5 +122,4 @@ module.exports = {
       },
     },
   },
-  // Webpack's configuration goes here
 };

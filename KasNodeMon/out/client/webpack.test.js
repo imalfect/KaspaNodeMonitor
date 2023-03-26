@@ -3,9 +3,10 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
+const WebpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const RobotstxtPlugin = require('robotstxt-webpack-plugin');
 const pkg = require('./package.json');
-// TODO: Check this.
+const port = process.env.PORT || 2989;
 module.exports = {
   mode: 'production',
   entry: './src/index.js',
@@ -23,6 +24,7 @@ module.exports = {
         },
       ],
     }),
+    new WebpackBundleAnalyzer(),
     new HtmlWebpackPlugin({
       title: 'Kaspa Node Monitor',
       // Load a custom template (lodash by default)
@@ -82,11 +84,17 @@ module.exports = {
       },
       // woff2,ttf,eot
       {
-        test: /\.(woff(2)?|ttf|eot)$/,
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
         type: 'asset/resource',
-        generator: {
-          filename: './fonts/[name][ext]',
-        },
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+            },
+          },
+        ],
       },
       // svg
       {

@@ -5,7 +5,7 @@ import GeneralInfo from './GeneralInfo';
 import InfoGrid from './InfoGrid';
 import React from 'react';
 import WarningSection from './WarningSection';
-import GraphGrid from './GraphGrid';
+
 /**
  * Main theme for the frontend
  * @return {JSX.Element}
@@ -22,7 +22,6 @@ export default function MainTheme() {
       <SectionDivider/>
       {/* Time of a grid of tables with precious data */}
       <InfoGrid/>
-      <GraphGrid/>
     </Container>
   );
 }
