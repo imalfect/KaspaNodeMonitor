@@ -14,7 +14,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.6",
     "@fontsource/roboto": "^4.5.8",
-    "@mui/icons-material": "^5.11.0",
+    "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.8",
     "bignumber.js": "^9.1.1",
     "buffer": "^6.0.3",
