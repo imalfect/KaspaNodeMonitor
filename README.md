@@ -25,6 +25,20 @@ Kaspa Node Monitor displays information such as:
     - System load
 
 ## Setup ☎
+### The easy way - KasNodeMon CLI Tool
+Kaspa Node Monitor features a CLI Tool called [KasNodeMon](https://www.npmjs.com/package/kasnodemon), this tool lets you easily set up a new instance of the node monitor, as well as change configuration and update existing ones. It also has an ability to diagnose the most common issues with the node monitor.
+
+**You need to have [NodeJS](https://nodejs.org/) installed on your system.**
+
+After NodeJS is installed on your system, you may follow these steps.
+
+1. Run the `init` command
+	
+   		$ npx kasnodemon@latest init
+2. Answer all the questions prompted by the program, and wait for the process to finish
+3. **Success!** Kaspa Node Monitor is set up. To run it, visit the server directory, and run `npm start`. Quick, wasn't it?
+
+### Cloning from GitHub & Building Manually
 Below you will find the instructions to set up Kaspa Node Monitor with your Kaspa Node. These instructions are for Linux, some steps may be different on other operating systems, for example `nano` is a linux package.
 
 **You need to have [NodeJS](https://nodejs.org/) and [Git](https://git-scm.com/) installed on your system.**
@@ -158,6 +172,34 @@ Changes to `server/.env`:
 Changes to `client/config.json`:
 - Use this for `wsApiURL`: `"wsApiURL": "ws://127.0.0.1:8124/ws"`
   - The `8124` here matches the port in `docker-compose.yaml`
+
+## Other commands for `KasNodeMon`
+### `kasnodemon diagnose`
+- Directory can be specified with the `-d` flag, otherwise the current one is used
+- Checks for the most common errors in a node monitor installation
+
+---
+ 
+### `kasnodemon checkUpdates`
+- Directory can be specified with the `-d` flag, otherwise the current one is used
+- Checks for available updates for the kaspa node monitor instance 
+
+---
+ 
+### `kasnodemon update`
+- Directory can be specified with the `-d` flag, otherwise the current one is used
+- Updates the kaspa node monitor instance, configs remain unchanged, changes made to the code will be overwritten.
+
+---
+ 
+### `kasnodemon nodeStatus <ip>`
+- This command lets you easily check the status of any kaspa node from the command line, simply execute the command and the most important information about the node will appear.
+
+---
+ 
+### `kasnodemon config <type>`
+- Type (`client`/`server`)
+- This command lets you change the configuration of the kaspa node monitor instance with ease
 
 ## Contributing
 Pull requests are welcome on our [GitHub](https://github.com/imalfect/KaspaNodeMonitor). For major changes, please open an issue first to discuss what you would like to change.
