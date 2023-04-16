@@ -5,7 +5,7 @@ const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const RobotstxtPlugin = require('robotstxt-webpack-plugin');
 const pkg = require('./package.json');
-const port = process.env.PORT || 2989;
+// TODO: Check this.
 module.exports = {
   mode: 'production',
   entry: './src/index.js',

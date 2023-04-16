@@ -1,6 +1,6 @@
 {
   "name": "kaspanodemonitorfrontend",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Kaspa Node Monitor is a great tool to monitor your kaspa node",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "build": "webpack --mode production --config ./webpack.prod.js"
   },
   "author": "iMalFect",
-  "license": "GPL-3.0-or-later",
+  "license": "ISC",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.6",
@@ -18,12 +18,14 @@
     "@mui/material": "^5.11.8",
     "bignumber.js": "^9.1.1",
     "buffer": "^6.0.3",
+    "chart.js": "^4.2.1",
     "crypto-browserify": "^3.12.0",
     "css-loader": "^6.7.3",
     "os-browserify": "^0.3.0",
     "path-browserify": "^1.0.1",
     "process": "^0.11.10",
     "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "stream-browserify": "^3.0.0"
   },

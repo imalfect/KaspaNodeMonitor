@@ -6,3 +6,4 @@ npm-debug.log*
 !.env.example
 config.json
 !config.json.example
+package-lock.json
