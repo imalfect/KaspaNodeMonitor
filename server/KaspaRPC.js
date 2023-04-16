@@ -61,7 +61,7 @@ async function subscribeToEvents() {
       nodeEvents.emit('blockAdded', response);
     });
   } else {
-    // Node is not syned and therefore doesn't emit events about new blocks
+    // Node is not synced and therefore doesn't emit events about new blocks
     const syncCheckInterval = setInterval(async () => {
       info = await rpc.request('getInfoRequest', {});
       if (info.isSynced) {
@@ -84,11 +84,44 @@ async function subscribeToEvents() {
 export async function getNodeInfo() {
   if (isConnected) {
     const p = performance.now();
-    const mainStats = await rpc.request('getBlockDagInfoRequest', {});
-    const connectedPeers = await rpc.request('getConnectedPeerInfoRequest', {});
-    const info = await rpc.request('getInfoRequest', {});
-    const blueScore = await rpc.request('getVirtualSelectedParentBlueScoreRequest', {});
-    const hashRate = await getNetworkHashrate();
+    const mainStats = await rpc.request('getBlockDagInfoRequest', {}).catch((e) => {
+      console.log(`KasNodeMon encountered an error while fetching node info: ${JSON.stringify(e)}`);
+      // set to 0 if error
+      return {
+        blockCount: 'Error',
+        headerCount: 'Error',
+        virtualDaaScore: 'Error',
+        difficulty: 'Error',
+      };
+    });
+    const connectedPeers = await rpc.request('getConnectedPeerInfoRequest', {}).catch((e) => {
+      console.log(`KasNodeMon encountered an error while fetching node info: ${JSON.stringify(e)}`);
+      // set to 0 if error
+      return {
+        infos: [],
+      };
+    });
+    const info = await rpc.request('getInfoRequest', {}).catch((e) => {
+      console.log(`KasNodeMon encountered an error while fetching node info: ${JSON.stringify(e)}`);
+      // set to 0 if error
+      return {
+        serverVersion: 'Error',
+        mempoolSize: 'Error',
+        isSynced: 'Error',
+      };
+    });
+    const blueScore = await rpc.request('getVirtualSelectedParentBlueScoreRequest', {}).catch((e) => {
+      console.log(`KasNodeMon encountered an error while fetching node info: ${JSON.stringify(e)}`);
+      // set to 0 if error
+      return {
+        blueScore: 'Error',
+      };
+    });
+    const hashRate = await getNetworkHashrate(rpc).catch((e) => {
+      console.log(`KasNodeMon encountered an error while fetching node info: ${JSON.stringify(e)}`);
+      // set to 0 if error
+      return 0;
+    });
     const pp = performance.now();
     // Check by timestamp sync
     const isSyncedTimestamp = new BigNumber(Date.now()).minus(latestBlockTimestamp).isLessThan(1000 * 60); // 1 minute

@@ -6,7 +6,7 @@ import {execa} from "execa";
 import fetch from "node-fetch";
 import ora from "ora";
 import cliSpinners from "cli-spinners";
-const themesList = {
+export const themesList = {
     themes: ['mainDark','mainLight','commandLineGreen','commandLineYellow']
 }
 export default class InitCommand {
