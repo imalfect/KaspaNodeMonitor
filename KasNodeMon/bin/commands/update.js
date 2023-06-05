@@ -104,7 +104,7 @@ export default class HelloCommand {
             {
                 type: 'confirm',
                 name: 'continue',
-                message: `It appears that ${isLatest.main ? 'the main folder' : ''} ${isLatest.server ? 'the server folder' : ''} ${isLatest.client ? 'the client folder' : ''} ${isLatest.main && isLatest.server && isLatest.client ? 'are' : 'is'} not up to date. Do you want to continue with the update? Only the products that are not up to date will be updated. If you made any modifications to the code, they will be overwritten.`,
+                message: `It appears that ${!isLatest.main ? 'the main folder' : ''} ${!isLatest.server ? 'the server folder' : ''} ${!isLatest.client ? 'the client folder' : ''} ${!isLatest.main && !isLatest.server && !isLatest.client ? 'are' : 'is'} not up to date. Do you want to continue with the update? Only the products that are not up to date will be updated. If you made any modifications to the code, they will be overwritten.`,
             }
         ]);
         if (!updateApproval.continue) {
@@ -190,5 +190,6 @@ export default class HelloCommand {
             console.log(chalk.greenBright('Client built'));
             buildSpinner.stop();
         }
+        console.log(chalk.greenBright('Update complete!'));
     }
 }
