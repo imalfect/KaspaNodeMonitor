@@ -38,7 +38,7 @@ export default class HelloCommand {
         } else if (versions.server === '') {
             console.log(chalk.yellowBright(`It appears that you do not have ${chalk.bold("the server folder")}. Version check skipped for ${chalk.bold("the server folder")}.`));
         } else {
-            console.log(chalk.yellowBright(`You are running an outdated version of Kaspa Node Monitor on ${chalk.bold("the server folder")} (${packageJsonServer.version}). The latest version is ${latestVersion}.`));
+            console.log(chalk.yellowBright(`You are running an outdated version of Kaspa Node Monitor on ${chalk.bold("the server folder")} (${versions.server}). The latest version is ${latestVersion}.`));
         }
         // Check for package.json in the client folder
         if (latestVersion === versions.client) {
@@ -46,7 +46,7 @@ export default class HelloCommand {
         } else if (versions.client === '') {
             console.log(chalk.yellowBright(`It appears that you do not have ${chalk.bold("the client folder")}. Version check skipped for ${chalk.bold("the client folder")}.`));
         } else {
-            console.log(chalk.yellowBright(`You are running an outdated version of Kaspa Node Monitor on ${chalk.bold("the client folder")} (${packageJsonClient.version}). The latest version is ${latestVersion}.`));
+            console.log(chalk.yellowBright(`You are running an outdated version of Kaspa Node Monitor on ${chalk.bold("the client folder")} (${versions.client}). The latest version is ${latestVersion}.`));
         }
     }
 }
