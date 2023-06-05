@@ -30,7 +30,7 @@ export default class HelloCommand {
         if (latestVersion === versions.main) {
             console.log(chalk.greenBright(`You are running the latest version of Kaspa Node Monitor on ${chalk.bold("the main folder")} (${latestVersion})`));
         } else {
-            console.log(chalk.yellowBright(`You are running an outdated version of Kaspa Node Monitor on ${chalk.bold("the main folder")} (${currentVersion}). The latest version is ${latestVersion}.`));
+            console.log(chalk.yellowBright(`You are running an outdated version of Kaspa Node Monitor on ${chalk.bold("the main folder")} (${versions.main}). The latest version is ${latestVersion}.`));
         }
         // Check for package.json in the server folder
         if (latestVersion === versions.server) {
