@@ -38,13 +38,12 @@ export const nodeUrl = process.env.NODE_URL;
 export const location = process.env.NODE_LOCATION || 'Kasland';
 // Check if user allowed for server information
 export const allowServerInfo = process.env.ALLOW_SERVER_INFORMATION !== 'false' || false;
-export const hostname = allowServerInfo ? os.hostname() : 'Not specified';
-export const cpuModel = allowServerInfo ? os.cpus()[0].model : false;
-export const cpuThreads = allowServerInfo ? os.cpus().length : false;
+export const hostname = process.env.SERVER_INFORMATION_HOSTNAME ? process.env.SERVER_INFORMATION_HOSTNAME : (allowServerInfo ? os.hostname() : 'Not specified');
+export const cpuModel = process.env.SERVER_INFORMATION_CPU_MODEL ? process.env.SERVER_INFORMATION_CPU_MODEL : (allowServerInfo ? os.cpus()[0].model : false);
+export const cpuThreads = process.env.SERVER_INFORMATION_CPU_THREADS ? process.env.SERVER_INFORMATION_CPU_THREADS : (allowServerInfo ? os.cpus().length : false);
 const totalRamBytes = allowServerInfo ? os.totalmem() : false;
 // eslint-disable-next-line max-len
 export const totalRam = allowServerInfo ? new BigNumber(totalRamBytes).shiftedBy(-6).toFixed(0) : false;
-
 if (process.env.SERVE_FRONTEND === 'true') {
   // Serve frontend
   log.info(`${chalk.green('Server:')} Serve Frontend is true, serving frontend`);

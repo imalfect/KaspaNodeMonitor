@@ -23,7 +23,7 @@ export default class InitCommand {
                 type: 'input',
                 name: 'nodeUrl',
                 message: 'What is the RPC address of your node?',
-                default: '127.0.0.1:16200',
+                default: '127.0.0.1:16110',
             }
         ]);
         // Ask the user whether to allow server information or not
@@ -95,7 +95,7 @@ export default class InitCommand {
                 type: 'input',
                 name: 'title',
                 message: 'What do you want the welcome message of the website to be?',
-                default: 'Welcome to Jake\'s Node!',
+                default: 'Welcome to Leo\'s Node!',
             }
         ]);
         // Ask for the WS url of the backend
@@ -184,6 +184,11 @@ NODE_URL=${nodeUrl}
 # SUMMARY: This setting allows the server to send information about itself to the client.
 # TODO: Let user manually set the specification in case the node monitor is running on a different machine.
 ALLOW_SERVER_INFORMATION=${allowServerInfo}
+# If you want to set the server information manually, use the variables below, otherwise leave them blank
+# And the server will automatically pull them from the system
+SERVER_INFORMATION_HOSTNAME=
+SERVER_INFORMATION_CPU_MODEL=
+SERVER_INFORMATION_CPU_THREADS=
 
 # Node location (preferably country) 
 NODE_LOCATION=${location}
