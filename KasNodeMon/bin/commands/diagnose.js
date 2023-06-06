@@ -73,8 +73,8 @@ export default class DiagnoseCommand {
             console.error(`${chalk.red('Kaspa:')} ${err}`);
         });
         // Check if the client config.json file has the correct variables
-        if (themesList.indexOf(clientConfig.theme) === -1) {
-            console.log(chalk.yellowBright(chalk.bold(`The theme ${clientConfig.theme} is not a valid theme, This may cause the frontend to not display properly. Please choose a valid theme from the following list: ${themesList.join(', ')}`)));
+        if (themesList.themes.indexOf(clientConfig.theme) === -1) {
+            console.log(chalk.yellowBright(chalk.bold(`The theme ${clientConfig.theme} is not a valid theme, This may cause the frontend to not display properly. Please choose a valid theme from the following list: ${themesList.themes.join(', ')}`)));
         }
         if ((clientConfig.wsApiURL.contains('localhost') || clientConfig.wsApiURL.contains('127.0.0.1')) && installationType !== 'local') {
             console.log(chalk.yellowBright(chalk.bold(`The wsApiURL in the config.json file is configured to work only on localhost, while the server has a different setting this may cause connection issues. If you want to make the frontend accessible from the internet, change the wsApiURL variable.`)));

@@ -1,7 +1,7 @@
 {
   "name": "kasnodemon",
   "type": "module",
-  "version": "0.2.02",
+  "version": "0.2.03",
   "description": "Kasnodemon is a tool that lets you easily manage your kaspa node monitor instance.",
   "main": "bin/index.js",
   "bin": {
