@@ -13,7 +13,10 @@ import {numberFormatter} from '../index.js';
  * @constructor
  */
 export default function CommandLineData() {
-  const [nodeData, setNodeData] = React.useState({});
+  const [nodeData, setNodeData] = React.useState({
+    isSyncedRPC: false,
+    isSyncedTimestamp: false,
+  });
   const [network, setNetwork] = React.useState('');
   const [hardwareData, setHardwareData] = React.useState({});
   React.useEffect(() => {
