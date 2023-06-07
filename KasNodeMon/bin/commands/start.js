@@ -14,7 +14,7 @@ export default class StartCommand {
         }
     ];
     static action(name, dir) {
-        dir = dir.dir;
+        dir = name.dir;
         // Look for a package json file in the directory
         const packageJson = JSON.parse(fs.readFileSync(path.join(dir, 'package.json'), 'utf8'));
         if (!(packageJson.name === 'kaspanodemonitor') || !(packageJson.name === 'kaspanodemonitorbackend')) {
