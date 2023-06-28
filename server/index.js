@@ -11,6 +11,7 @@ import chalk from 'chalk';
 import log from 'loglevel';
 import morgan from 'morgan';
 import {fileURLToPath} from 'url';
+import getFolderSize from 'get-folder-size';
 // I know that it's in process.env but in case someone runs node index.js instead of npm start I want to make sure it works
 // also workaround thanks to ESLint
 import {readFileSync} from 'fs';
@@ -18,6 +19,7 @@ const pkg = JSON.parse(readFileSync('./package.json'));
 export const backendVersion = pkg.version;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+export let dataSize = 0;
 // Config from root folder
 dotenv.config({path: './.env'});
 log.setLevel(process.env.LOG_LEVEL);
@@ -92,3 +94,18 @@ app.on;
 app.listen(port, host, () => {
   log.info(`Server running on ${host}:${port}`);
 });
+
+// Check if user wants to track the folder size
+if (process.env.TRACK_DATA_SIZE === 'true') {
+  log.info(`${chalk.green('Server:')} Track data size is true, tracking data size`);
+  getFolderSize(process.env.DATA_FOLDER).then((size) => {
+    log.info(`Data folder size: ${new BigNumber(size.size).shiftedBy(-9).toFixed(2)} GB`);
+    dataSize = size.size;
+  });
+  setInterval(() => {
+    getFolderSize(process.env.DATA_FOLDER).then((size) => {
+      log.info(`Data folder size: ${new BigNumber(size.size).shiftedBy(-9).toFixed(2)} GB`);
+      dataSize = size.size;
+    });
+  }, 60000 * 5);
+}

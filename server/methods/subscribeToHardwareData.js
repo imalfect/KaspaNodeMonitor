@@ -2,7 +2,7 @@ import WebSocketSubscription from '../constructors/subscription.js';
 import {allowServerInfo, cpuModel, cpuThreads, hostname, location, totalRam} from '../index.js';
 import * as os from 'os';
 import BigNumber from 'bignumber.js';
-
+import {dataSize} from '../index.js';
 /**
  * @class Meteor.Methods.subscribeToNodeData
  * @summary The class `Meteor.Methods.subscribeToNodeData` is a subscription for node data.
@@ -37,6 +37,7 @@ export default class SubscribeToNodeData extends WebSocketSubscription {
       totalRam: totalRam,
       freeRam: new BigNumber(os.freemem()).shiftedBy(-6).toFixed(0),
       load: os.loadavg()[1],
+      nodeSize: process.env.TRACK_DATA_SIZE === 'true' ? dataSize : false,
     };
     data.origin = this.name;
     this.ws.send(JSON.stringify(data));
@@ -46,6 +47,7 @@ export default class SubscribeToNodeData extends WebSocketSubscription {
         const updatedData = {
           freeRam: new BigNumber(os.freemem()).shiftedBy(-6).toFixed(0),
           load: os.loadavg()[1],
+          nodeSize: process.env.TRACK_DATA_SIZE === 'true' ? dataSize : false,
         };
         updatedData.origin = this.name;
         this.ws.send(JSON.stringify(updatedData));

@@ -96,6 +96,12 @@ export default function InfoGrid() {
             'name': 'Load',
             'value': data.load,
           },
+          {
+            'name': 'Node Size',
+            'value': data.nodeSize ? `${new BigNumber(data.nodeSize)
+                .shiftedBy(-9)
+                .toFixed(2)} GB` : 'N/A',
+          },
         ]);
       });
       const currentNetwork = await getNodeNetwork();

@@ -79,6 +79,24 @@ export default class InitCommand {
                 message: 'Do you want to serve the frontend along with the backend server?'
             }
         ]);
+        // Ask whether to serve the frontend along with the express server or not
+        let trackSize = await inquirer.prompt([
+            {
+                type: 'confirm',
+                name: 'trackSize',
+                message: 'Do you want to track the node size? (The monitor has to run on the same machine)'
+            }
+        ]);
+        let dataDir;
+        if (trackSize === true) {
+            dataDir = await inquirer.prompt([
+                {
+                    type: 'input',
+                    name: 'dataDir',
+                    message: 'What is the data directory of your node?',
+                }
+                ]);
+        }
         // Ask the user for the location of the node
         let location = await inquirer.prompt([
             {
@@ -192,6 +210,11 @@ SERVER_INFORMATION_CPU_THREADS=
 
 # Node location (preferably country) 
 NODE_LOCATION=${location}
+
+# Node DATADIR Size
+# Set this to true if you want to track the node datadir size, and make sure to put the ABSOLUTE path to the datadir (MUST HAVE SERVER INFORMATION ALLOWED)
+TRACK_DATA_SIZE=${trackSize}
+DATA_FOLDER=${dataDir}
 
 # LOG LEVELS
 # trace -> issues that are not errors but are useful to debug, not used for now

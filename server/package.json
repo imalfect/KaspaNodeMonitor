@@ -1,6 +1,6 @@
 {
   "name": "kaspanodemonitorbackend",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "license": "ISC",
   "type": "module",
   "scripts": {
@@ -14,6 +14,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-ws": "^5.0.2",
+    "get-folder-size": "^4.0.0",
     "kaspajs": "github:GateKVite/Kaspajs",
     "loglevel": "^1.8.1",
     "modernlog": "^1.1.0",

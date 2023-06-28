@@ -6,7 +6,6 @@ import BigNumber from 'bignumber.js';
 import config from '../../config.json';
 import {dataChange, getNodeNetwork} from '../KaspaAPI';
 import {numberFormatter} from '../index.js';
-
 /**
  * Command Line theme for the frontend
  * @return {JSX.Element}
@@ -194,6 +193,18 @@ export default function CommandLineData() {
               </Grid>
               <Grid item sx={{ml: 'auto'}}>
                 {hardwareData.load}
+              </Grid>
+            </Grid>
+          </Typography>
+          <Typography variant="h5" sx={{fontWeight: 800}}>
+            <Grid container direction="row">
+              <Grid item sx={{mr: 'auto'}}>
+                NODE SIZE:
+              </Grid>
+              <Grid item sx={{ml: 'auto'}}>
+                {hardwareData.nodeSize ? new BigNumber(hardwareData.nodeSize)
+                    .shiftedBy(-9)
+                    .toFixed(2) : 'N/A'} GB
               </Grid>
             </Grid>
           </Typography>

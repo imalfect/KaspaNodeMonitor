@@ -103,6 +103,8 @@ async function configureServer(dir) {
     console.log(chalk.greenBright('Node URL: ') + envConfig.NODE_URL);
     console.log(chalk.greenBright('Allow server information: ') + envConfig.ALLOW_SERVER_INFORMATION);
     console.log(chalk.greenBright('Node location: ') + envConfig.NODE_LOCATION);
+    console.log(chalk.greenBright("Track node size: ") + envConfig.TRACK_NODE_SIZE);
+    console.log(chalk.greenBright("Datadir:") + envConfig.DATA_FOLDER);
     console.log(chalk.greenBright('Log level: ') + envConfig.LOG_LEVEL);
     console.log(chalk.greenBright('Port: ') + envConfig.PORT);
     console.log(chalk.greenBright('Host: ') + envConfig.HOST);
@@ -128,6 +130,18 @@ async function configureServer(dir) {
             name: 'location',
             message: 'Node location',
             default: envConfig.NODE_LOCATION
+        },
+        {
+            type: 'confirm',
+            name: 'trackSize',
+            message: 'Track node size',
+            default: envConfig.TRACK_NODE_SIZE
+        },
+        {
+            type: 'input',
+            name: 'dataDir',
+            message: 'Node data dir (for size tracking)',
+            default: envConfig.DATA_FOLDER
         },
         {
             type: 'input',
@@ -161,6 +175,8 @@ async function configureServer(dir) {
     newEnvFile += `NODE_URL=${answers.nodeUrl}\n`;
     newEnvFile += `ALLOW_SERVER_INFORMATION=${answers.allowServerInfo}\n`;
     newEnvFile += `NODE_LOCATION=${answers.location}\n`;
+    newEnvFile += `TRACK_NODE_SIZE=${answers.trackSize}\n`;
+    newEnvFile += `DATA_FOLDER=${answers.dataDir}\n`;
     newEnvFile += `LOG_LEVEL=${answers.logLevel}\n`;
     newEnvFile += `PORT=${answers.port}\n`;
     newEnvFile += `HOST=${answers.host}\n`;

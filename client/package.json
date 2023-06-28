@@ -1,6 +1,6 @@
 {
   "name": "kaspanodemonitorfrontend",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Kaspa Node Monitor is a great tool to monitor your kaspa node",
   "main": "index.js",
   "scripts": {
